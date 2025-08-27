@@ -1,3 +1,4 @@
+import AboutMe from "@/components/AboutMe";
 import BentoGrid from "@/components/BentoGrid";
 import Hero from "@/components/Hero";
 import Logo from "@/components/Logo";
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Testimonials />
       <BentoGrid />
+      <AboutMe />
     </main>
   );
 }

@@ -39,7 +39,7 @@ function BentoGrid() {
         Wieso Krypto Trading?
       </h2>
 
-      <div className="grid gap-4 md:grid-cols-3 grid-rows-2">
+      <div className="grid gap-4 md:grid-cols-3 grid-rows-2 max-w-6xl m-auto">
         {items.map((item, index) => (
           <BentoGridItem
             key={index}
@@ -76,7 +76,7 @@ function BentoGridItem({
     >
       {icon ?? <Trophy color="#1CC5FF" />}
       <h3 className="pt-4 pb-2 leading-normal font-bold text-xl">{title}</h3>
-      <p>{text}</p>
+      <p className="text-[#62698E]">{text}</p>
 
       {imageUrl && (
         <Image
