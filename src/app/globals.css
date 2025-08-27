@@ -198,6 +198,37 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Video Slider Styles */
+.testimonial-swiper {
+  padding: 2rem 0;
+}
+
+.testimonial-slide {
+  opacity: 0.6;
+  transform: scale(0.8);
+  filter: blur(2px);
+  transition: all 0.4s ease;
+}
+
+.testimonial-slide.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+}
+
+.testimonial-slide.swiper-slide-prev,
+.testimonial-slide.swiper-slide-next {
+  opacity: 0.7;
+  transform: scale(0.85);
+  filter: blur(1px);
+}
+
+.swiper-button-next-custom:disabled,
+.swiper-button-prev-custom:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

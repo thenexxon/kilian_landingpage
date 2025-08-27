@@ -15,15 +15,15 @@ export function HeroClient({ title, gridItems }: HeroClientProps) {
     <>
       <LightRays
         raysOrigin="top-center"
-        raysColor="#4E86FF"
+        raysColor="#3D55CD"
         raysSpeed={1}
         lightSpread={0.9}
         rayLength={1}
         followMouse={true}
-        mouseInfluence={0.1}
+        mouseInfluence={0.4}
         noiseAmount={0.1}
         distortion={0.01}
-        className="absolute top-0"
+        className="absolute top-0 z-10"
       />
 
       {/* Display the title from markdown */}

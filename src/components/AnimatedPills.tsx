@@ -41,7 +41,7 @@ export function AnimatedPills({ items }: AnimatedPillsProps) {
   // Desktop: show all pills
   if (!isMobile) {
     return (
-      <div className="grid grid-cols-3 grid-rows-2 gap-6 lg:w-full justify-center lg:-my-10 pointer-events-none">
+      <div className="grid grid-cols-3 grid-rows-2 gap-6 lg:w-full justify-center lg:-my-12 pointer-events-none">
         {items.map((item, index) => {
           let gridClass = "";
           if (index === 0) gridClass = "col-start-1 row-start-1";

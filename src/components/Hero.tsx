@@ -17,7 +17,7 @@ async function Hero({ className }: HeroProps) {
   return (
     <section
       className={cn(
-        "relative w-full min-h-dvh pt-28 flex flex-col items-center justify-center md:pt-[20vh]",
+        "relative w-full pt-28 pb-8 flex flex-col items-center justify-center md:pt-[20vh]",
         className
       )}
     >
@@ -48,13 +48,13 @@ async function Hero({ className }: HeroProps) {
           alt="trading line shadow"
         />
       </div>
-      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/4 w-full">
+      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
         <Image
           src={"/bottom-grid-hero.png"}
           width={500}
           height={100}
           alt="hero grid effect"
-          className="w-full h-[600px]"
+          className="w-full h-[500px]"
         />
       </div>
 
@@ -71,7 +71,7 @@ async function Hero({ className }: HeroProps) {
           width={270}
           height={260}
           alt="abstruct shape"
-          className="w-[230px] relative"
+          className="w-[270px] relative"
         />
       </div>
 
