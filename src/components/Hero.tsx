@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/utils/cn";
 import { getContentByComponent } from "@/lib/markdown";
+import { HeroClient } from "./HeroClient";
+import Counter from "./Counter";
 
 interface HeroProps {
   className?: string;
@@ -10,9 +12,15 @@ interface HeroProps {
 async function Hero({ className }: HeroProps) {
   // Fetch the content from markdown
   const heroContent = await getContentByComponent("hero");
+  const gridContent = await getContentByComponent("hero", "grid.md");
 
   return (
-    <section className={cn("relative w-full h-dvh overflow-hidden", className)}>
+    <section
+      className={cn(
+        "relative w-full min-h-dvh pt-28 flex flex-col items-center justify-center md:pt-[20vh]",
+        className
+      )}
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-full">
         <Image
           src={"/top-gird-hero.png"}
@@ -40,7 +48,7 @@ async function Hero({ className }: HeroProps) {
           alt="trading line shadow"
         />
       </div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4">
+      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/4 w-full">
         <Image
           src={"/bottom-grid-hero.png"}
           width={500}
@@ -50,12 +58,24 @@ async function Hero({ className }: HeroProps) {
         />
       </div>
 
-      {/* Display the title from markdown */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="text-4xl md:text-6xl font-bold text-gradient text-center px-4 max-w-[600px] text-balance md:leading-snug">
-          {heroContent?.title || "No title is givin"}
-        </h1>
+      {/* Client components */}
+      <HeroClient
+        title={heroContent?.title || "No title is givin"}
+        gridItems={gridContent?.gridItems}
+      />
+
+      <div className="relative my-8 hidden md:block">
+        <div className="absolute inset-0 bg-[#3D55CD] rounded-full z-0 blur-[160px]"></div>
+        <Image
+          src={"/hero-art.png"}
+          width={270}
+          height={260}
+          alt="abstruct shape"
+          className="w-[230px] relative"
+        />
       </div>
+
+      <Counter targetDate="2025-08-28T23:59:59" />
     </section>
   );
 }
