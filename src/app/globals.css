@@ -229,6 +229,56 @@
   cursor: not-allowed;
 }
 
+/* Custom Swiper Styles with Your Original Effects */
+.testimonial-swiper-custom {
+  padding: 2rem 0;
+  overflow: visible;
+}
+
+/* Hide default Swiper navigation buttons */
+.testimonial-swiper-custom .swiper-button-next,
+.testimonial-swiper-custom .swiper-button-prev {
+  display: none;
+}
+
+.testimonial-swiper-custom .swiper-slide {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Left slide (previous) - your blur-xs and rotate-y-12 effects */
+.testimonial-swiper-custom .swiper-slide-prev {
+  filter: blur(2px);
+}
+
+.testimonial-swiper-custom .swiper-slide-prev .perspective-normal {
+  perspective: 1000px;
+}
+
+.testimonial-swiper-custom .swiper-slide-prev img {
+  transform: rotateY(20deg) scale(0.95) !important;
+  transition: 0.6s all;
+}
+
+/* Center slide (active) - your normal state with scale-105 */
+.testimonial-swiper-custom .swiper-slide-active img {
+  transform: scale(1.05) !important;
+  border: 1px solid red;
+}
+
+/* Right slide (next) - your blur-xs and -rotate-y-12 effects */
+.testimonial-swiper-custom .swiper-slide-next {
+  filter: blur(2px);
+}
+
+.testimonial-swiper-custom .swiper-slide-next .perspective-normal {
+  perspective: 1000px;
+}
+
+.testimonial-swiper-custom .swiper-slide-next img {
+  transform: rotateY(-20deg) scale(0.95) !important;
+  transition: 0.6s all;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
