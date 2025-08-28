@@ -39,7 +39,7 @@ function CallToAction() {
           </a>
         </div>
       </div>
-      <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
+      <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
         <Image
           src={"/bottom-grid-hero.png"}
           width={500}

@@ -10,7 +10,7 @@ function Footer() {
 
   return (
     <footer className="relative">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Logo */}
           <div className="flex justify-center md:justify-start">

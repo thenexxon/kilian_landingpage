@@ -6,6 +6,7 @@ import Faq from "@/blocks/Faq";
 import Hero from "@/blocks/Hero";
 import Logo from "@/components/Logo";
 import Testimonials from "@/blocks/Testimonials";
+import TheApp from "@/blocks/TheApp";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Articles />
       <Faq />
       <CallToAction />
+      <TheApp />
     </main>
   );
 }
