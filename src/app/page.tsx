@@ -1,11 +1,11 @@
-import AboutMe from "@/components/AboutMe";
-import Articles from "@/components/Articles";
-import BentoGrid from "@/components/BentoGrid";
-import CallToAction from "@/components/CallToAction";
-import Faq from "@/components/Faq";
-import Hero from "@/components/Hero";
+import AboutMe from "@/blocks/AboutMe";
+import Articles from "@/blocks/Articles";
+import BentoGrid from "@/blocks/BentoGrid";
+import CallToAction from "@/blocks/CallToAction";
+import Faq from "@/blocks/Faq";
+import Hero from "@/blocks/Hero";
 import Logo from "@/components/Logo";
-import Testimonials from "@/components/Testimonials";
+import Testimonials from "@/blocks/Testimonials";
 
 export default function Home() {
   return (

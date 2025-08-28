@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
-import { GradientPill } from "./GradientPill";
+import { GradientPill } from "../components/GradientPill";
 
 interface Article {
   id?: number;

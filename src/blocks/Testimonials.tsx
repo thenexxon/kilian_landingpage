@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import VideoSlider from "./VideoSlider";
+import VideoSlider from "../components/VideoSlider";
 
 function Testimonials() {
   return (

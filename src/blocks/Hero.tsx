@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/utils/cn";
 import { getContentByComponent } from "@/lib/markdown";
-import { HeroClient } from "./HeroClient";
-import Counter from "./Counter";
+import { HeroClient } from "../components/HeroClient";
+import Counter from "../components/Counter";
 
 interface HeroProps {
   className?: string;
@@ -18,7 +18,7 @@ async function Hero({ className }: HeroProps) {
     <section
       className={cn(
         "relative w-full pt-28 pb-8 flex flex-col items-center justify-center md:pt-[20vh]",
-        className
+        className,
       )}
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-full">
