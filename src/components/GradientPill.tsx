@@ -33,7 +33,7 @@ export function GradientPill({
       {/* Content */}
       <div className="relative flex items-center py-4 px-8">
         <div className="flex items-center">
-          {icon && <Image src={icon} width={24} height={24} alt={iconAlt} />}
+          {icon && <Image src={icon} width={24} height={24} alt={iconAlt} style={{ width: "auto", height: "auto" }} />}
           <span className={cn("text-white text-xs font-sm", icon && "ml-4")}>
             {text}
           </span>

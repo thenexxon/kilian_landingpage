@@ -1,4 +1,10 @@
-import { Trophy } from "lucide-react";
+import {
+  BanknoteArrowUp,
+  DoorOpen,
+  ShieldCheck,
+  Trophy,
+  Zap,
+} from "lucide-react";
 import React from "react";
 import Image from "next/image";
 
@@ -10,26 +16,29 @@ function BentoGrid() {
     icon?: React.ReactNode;
   }> = [
     {
-      title: "Überschrift",
-      text: "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am Besten den Kilian.",
+      title: "Hohe Gewinnchancen",
+      text: "Kryptowährungen bieten die Möglichkeit, in kurzer Zeit hohe Gewinne zu erzielen, da sich ihre Preise schnell ändern können.",
     },
     {
-      title: "Überschrift",
-      text: "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am Besten den Kilian.",
+      title: "Schnelle Resultate",
+      text: "Kryptowährungen sind nicht nur eine innovative Technologie, sondern auch eine sichere Anlageoption für die Zukunft, da sie das Potenzial haben, traditionelle Finanzsysteme zu revolutionieren.",
+      icon: <Zap color="#1CC5FF" />,
     },
     {
-      title: "Überschrift",
-      text: "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am Besten den Kilian.",
+      title: "Passives Einkommen von zu Hause aus",
+      text: "Der Handel mit Kryptowährungen bietet die Möglichkeit, passives Einkommen zu generieren, ohne dass man physische Produkte verkaufen oder Dienstleistungen erbringen muss.",
       imageUrl: "/wallet.png",
+      icon: <BanknoteArrowUp color="#1CC5FF" />,
     },
     {
-      title: "Überschrift",
-      text: "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am Besten den Kilian.",
+      title: "Einfacher Einstieg",
+      text: "Der Handeln mit Kryptowährungen erfordert nur einen Internetzugang und eine Handelsplattform.",
+      icon: <DoorOpen color="#1CC5FF" />,
     },
     {
-      title: "Überschrift",
-      text: "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am Besten den Kilian.",
-      icon: <Trophy color="#1CC5FF" />,
+      title: "Sicherheit",
+      text: "Die Blockchain-Technologie sorgt für transparente Transaktionen. Öffentliche Hauptbücher und kryptografische Sicherheit machen den Handel sicher und überprüfbar.",
+      icon: <ShieldCheck color="#1CC5FF" />,
     },
   ];
 

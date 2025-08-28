@@ -24,35 +24,35 @@ function Articles() {
       id: 1,
       title: "Unternehmer Journal",
       url: "https://www.unternehmerjournal.de/kilian-kropiunik-finanzielle-freiheit-durch-trading/",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/UnternehmerJournal.webp",
       description: "Finanzielle Freiheit durch Trading",
     },
     {
       id: 2,
       title: "Forbes",
       url: "https://www.forbes.at/artikel/kilian-kropiunik-alles-nur-fassade",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/Forbes.webp",
       description: "Alles nur Fassade?",
     },
     {
       id: 3,
       title: "Gewinner Magazin",
       url: "https://gewinnermagazin.de/kilian-kropiunik-warum-viele-menschen-beim-trading-scheitern/",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/GewinnerMagazin.webp",
       description: "Warum viele Menschen beim Trading scheitern",
     },
     {
       id: 4,
       title: "Consulting Magazin",
       url: "https://consultingmagazin.de/kilian-kropiunik-wie-man-sich-sein-einkommen-durch-trading-erklickt",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/ConsultingMagazin.webp",
       description: "Wie man sich sein Einkommen durch Trading erklickt",
     },
     {
       id: 5,
       title: "Berliner Nachrichten",
       url: "https://www.berliner-nachrichten.de/krypto-masterclass-empfehlenswert-oder-mehr-schein-als-sein/",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/BerlinerNachrichten.webp",
       description:
         "Krypto Masterclass - Empfehlenswert oder mehr Schein als Sein?",
     },
@@ -60,21 +60,21 @@ function Articles() {
       id: 6,
       title: "Experten Testen",
       url: "https://www.expertentesten.de/news/krypto-masterclass-von-kilian-kropiunik-im-test-echte-erfahrungen/",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/ExpertenTesten.webp",
       description: "Krypto Masterclass im Test - Echte Erfahrungen",
     },
     {
       id: 7,
       title: "DFZ",
       url: "https://www.dfz21.at/dfz/erfahrungsbericht-kilian-kropiunik/",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/DFZ.webp",
       description: "Erfahrungsbericht Kilian Kropiunik",
     },
     {
       id: 8,
       title: "Münchner Allgemeine",
       url: "https://www.muenchner-allgemeine.de/kilian-kropiunik-im-faktencheck-was-taugt-seine-krypto-masterclass-wirklich/",
-      imagePath: "/screen-shot.png",
+      imagePath: "/articles/MuenchnerAllgemeine.webp",
       description:
         "Im Faktencheck - Was taugt seine Krypto Masterclass wirklich?",
     },
@@ -197,7 +197,7 @@ function TabContainer({ url, imagePath, title }: Article) {
           src={imagePath}
           width={900}
           height={600}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
           alt={title}
         />
       </div>

@@ -28,6 +28,7 @@ async function Hero({ className }: HeroProps) {
           height={100}
           alt="hero grid effect"
           className="w-full h-[600px]"
+          priority
         />
       </div>
       <div className="absolute inset-0 w-full h-full z-0">

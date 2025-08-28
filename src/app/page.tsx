@@ -7,10 +7,11 @@ import Hero from "@/blocks/Hero";
 import Logo from "@/components/Logo";
 import Testimonials from "@/blocks/Testimonials";
 import TheApp from "@/blocks/TheApp";
+import AnimatedPage from "@/components/AnimatedPage";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <AnimatedPage>
       <Logo />
       <Hero />
       <Testimonials />
@@ -20,6 +21,6 @@ export default function Home() {
       <Faq />
       <CallToAction />
       <TheApp />
-    </main>
+    </AnimatedPage>
   );
 }

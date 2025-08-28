@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { fetchVimeoThumbnails } from "@/utils/vimeoThumbnails";
 
 // Import Swiper styles
 import "swiper/css";
@@ -32,52 +33,88 @@ interface VideoSliderProps {
   className?: string;
 }
 
-// Sample slides for testing
+// Real testimonial data
 const sampleSlides: Slide[] = [
   {
     id: 1,
     image: "/foobar.jpg",
-    title: "Thomas, 31 Jahre",
+    title: "Steffen - 48 Jahre alt",
     description:
-      "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am besten den Kilian.",
-    videoUrl: "https://vimeo.com/76979871",
+      "Ich kann mir den Start ins Trading ohne die Unterstützung von Experten kaum vorstellen. Hier gibt es kompetente Coaches, die stets bereit sind, bei Fragen zu helfen.",
+    videoUrl: "https://vimeo.com/915612970",
     videoType: "vimeo",
   },
   {
     id: 2,
     image: "/foobar.jpg",
-    title: "Sarah, 28 Jahre",
+    title: "Thomas - 59 Jahre alt",
     description:
-      "Die Strategien haben mein Trading revolutioniert. Endlich verstehe ich die Märkte und kann erfolgreiche Entscheidungen treffen.",
-    videoUrl: "https://vimeo.com/76979871",
+      "Wer im Trading konstant Gewinne erzielen möchte, benötigt professionelle Unterstützung. Es ist ratsam, sich einen Coach zu suchen. Am Besten den Kilian.",
+    videoUrl: "https://vimeo.com/915607881",
     videoType: "vimeo",
   },
   {
     id: 3,
     image: "/foobar.jpg",
-    title: "Michael, 35 Jahre",
+    title: "Luke - 40 Jahre alt",
     description:
-      "Durch das professionelle Coaching konnte ich meine Verluste reduzieren und konstante Gewinne erzielen. Absolut empfehlenswert!",
-    videoUrl: "/testimonial-videos/michael.mp4",
-    videoType: "direct",
+      "Ich habe noch niemanden auf dem Markt getroffen, der so professionell ist. Alle Teilnehmer sind zufrieden und erzielen gute Gewinne. Ich glaube an das Projekt.",
+    videoUrl: "https://vimeo.com/915603456",
+    videoType: "vimeo",
   },
   {
     id: 4,
     image: "/foobar.jpg",
-    title: "Anna, 29 Jahre",
+    title: "Kevin - 20 Jahre alt",
     description:
-      "Die Lernmaterialien sind strukturiert und verständlich. Ich kann das Coaching jedem empfehlen, der erfolgreich traden möchte.",
-    videoUrl: "https://vimeo.com/76979871",
+      "Der kostenlose Videokurs bewahrt dich vor Fehlern, die typisch für Anfänger sind. Zudem fördert der Austausch mit anderen Mitgliedern dein Wachstum als Trader.",
+    videoUrl: "https://vimeo.com/915598600",
     videoType: "vimeo",
   },
   {
     id: 5,
     image: "/foobar.jpg",
-    title: "David, 42 Jahre",
+    title: "Philipp – 22 Jahre alt",
     description:
-      "Nach Jahren des Verlierens habe ich endlich eine profitable Strategie gefunden. Vielen Dank für die professionelle Unterstützung!",
-    videoUrl: "/testimonial-videos/david.mp4",
-    videoType: "direct",
+      "Nach langer Suche fand ich endlich das Mentoring-Programm, das mir nicht nur Wissen vermittelte, sondern auch zeigte, wie ich es praktisch umsetze, um meinen Traum vom Wohlstand zu verwirklichen.",
+    videoUrl: "https://vimeo.com/793489157",
+    videoType: "vimeo",
+  },
+  {
+    id: 6,
+    image: "/foobar.jpg",
+    title: "Nadir - 20 Jahre alt",
+    description:
+      "Ich war wirklich auf vielen Events und bei vielen Coachings - aber keines war so professionell und strukturiert wie dieses!",
+    videoUrl: "https://vimeo.com/793488933",
+    videoType: "vimeo",
+  },
+  {
+    id: 7,
+    image: "/foobar.jpg",
+    title: "Dieter - 45 Jahre alt",
+    description:
+      "Es ist ein steiniger Weg, wenn du dir selbst alles beibringen möchtest. Deshalb wollte ich direkt mit jemanden arbeiten, der weiß, wovon er spricht",
+    videoUrl: "https://vimeo.com/793488851",
+    videoType: "vimeo",
+  },
+  {
+    id: 8,
+    image: "/foobar.jpg",
+    title: "Marie - 44 Jahre alt",
+    description:
+      "Ich hätte anfangs nicht gedacht, dass ich als komplette Anfängerin es auch nach etwas Einarbeitungen zu meinen ersten Ziele schaffe!",
+    videoUrl: "https://vimeo.com/793488901",
+    videoType: "vimeo",
+  },
+  {
+    id: 9,
+    image: "/foobar.jpg",
+    title: "Kamil - 20 Jahre alt",
+    description:
+      "Der kostenlose Videokurs schützt dich vor Anfängerfehlern.",
+    videoUrl: "https://vimeo.com/793489184",
+    videoType: "vimeo",
   },
 ];
 
@@ -86,6 +123,35 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
   const [activeSlide, setActiveSlide] = useState(slidesData[0]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState<Slide | null>(null);
+  const [thumbnails, setThumbnails] = useState<{ [url: string]: string }>({});
+  const [thumbnailsLoading, setThumbnailsLoading] = useState(true);
+
+  // Fetch thumbnails on component mount
+  useEffect(() => {
+    const loadThumbnails = async () => {
+      const videoUrls = slidesData.map(slide => slide.videoUrl);
+      const fetchedThumbnails = await fetchVimeoThumbnails(videoUrls);
+      setThumbnails(fetchedThumbnails);
+      setThumbnailsLoading(false);
+    };
+
+    loadThumbnails();
+  }, [slidesData]);
+
+  // Update Swiper when thumbnails are loaded to recalculate layout
+  useEffect(() => {
+    if (!thumbnailsLoading) {
+      // Small delay to ensure images are rendered
+      const timer = setTimeout(() => {
+        // Force Swiper to update its layout
+        const swiperEl = document.querySelector('.testimonial-swiper-custom');
+        if (swiperEl && (swiperEl as any).swiper) {
+          (swiperEl as any).swiper.update();
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [thumbnailsLoading]);
 
   const openModal = (slide: Slide) => {
     setCurrentSlide(slide);
@@ -103,6 +169,11 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
     return match ? match[1] : null;
   };
 
+  // Get thumbnail for a slide
+  const getThumbnailUrl = (slide: Slide) => {
+    return thumbnails[slide.videoUrl] || slide.image;
+  };
+
   return (
     <div className={`${className || "overflow-hidden"}`}>
       <div className="container mx-auto mt-16 overflow-hidden">
@@ -112,6 +183,9 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
           slidesPerView={1}
           centeredSlides={true}
           loop={true}
+          watchSlidesProgress={true}
+          observer={true}
+          observeParents={true}
           breakpoints={{
             768: {
               slidesPerView: 3,
@@ -138,13 +212,31 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
                 className="perspective-normal relative cursor-pointer group overflow-hidden rounded-2xl"
                 onClick={() => openModal(slide)}
               >
-                <Image
-                  className="block overflow-hidden rounded-2xl w-full h-auto"
-                  src={slide.image}
-                  width={600}
-                  height={600}
-                  alt={slide.title}
-                />
+{thumbnailsLoading ? (
+                  <div className="block overflow-hidden rounded-2xl w-full aspect-video bg-gray-800 animate-pulse flex items-center justify-center">
+                    <Play strokeWidth={1} size={50} className="text-gray-600" />
+                  </div>
+                ) : (
+                  <Image
+                    className="block overflow-hidden rounded-2xl w-full h-auto object-cover"
+                    src={getThumbnailUrl(slide)}
+                    width={600}
+                    height={338}
+                    alt={slide.title}
+                    onLoad={() => {
+                      // Update Swiper layout when image loads
+                      const swiperEl = document.querySelector('.testimonial-swiper-custom');
+                      if (swiperEl && (swiperEl as any).swiper) {
+                        (swiperEl as any).swiper.update();
+                      }
+                    }}
+                    onError={(e) => {
+                      // Fallback to default image if thumbnail fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/foobar.jpg";
+                    }}
+                  />
+                )}
                 {/* Play Button Overlay */}
                 <div className="absolute top-1/2 left-1/2 -translate-1/2 group-hover:scale-125 transition-all">
                   <Play strokeWidth={1} size={50} />

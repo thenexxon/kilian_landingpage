@@ -29,8 +29,8 @@ function Logo({ className }: LogoProps) {
     <div
       className={cn(
         className,
-        "fixed top-0 w-full p-6 text-center left-0 right-0 z-50 transition-opacity duration-500 ease-in-out",
-        isVisible ? "opacity-100" : "opacity-0"
+        "fixed top-0 w-full p-6 text-center left-0 right-0 z-50 transition-opacity duration-500 ease-in-out pointer-events-none",
+        isVisible ? "opacity-100" : "opacity-0",
       )}
     >
       <Image
@@ -39,6 +39,7 @@ function Logo({ className }: LogoProps) {
         height={100}
         className="w-[250px] inline"
         alt="Krypto Masterclass logo"
+        priority
       />
     </div>
   );

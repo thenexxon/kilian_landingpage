@@ -3,7 +3,8 @@
     "allow": [
       "Bash(pnpm add:*)",
       "Bash(pnpm remove:*)",
-      "Read(//var/folders/38/vnp021vd23bbqxlf1t7b6p4w0000gn/T/TemporaryItems/NSIRD_screencaptureui_wDbMaO/**)"
+      "Read(//var/folders/38/vnp021vd23bbqxlf1t7b6p4w0000gn/T/TemporaryItems/NSIRD_screencaptureui_wDbMaO/**)",
+      "WebFetch(domain:krypto-master-class.webflow.io)"
     ],
     "deny": [],
     "ask": []
