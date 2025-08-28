@@ -22,6 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="e78a32ad-4d3c-4365-9126-f3deef8ce48c"
+        ></script>
+      </head>
       <body className={`${poppins.variable} antialiased`}>
         {children}
         <Footer />

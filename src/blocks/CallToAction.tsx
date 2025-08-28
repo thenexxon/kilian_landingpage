@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { CTAButton } from "@/components/CTAButton";
 
 function CallToAction() {
   return (
@@ -25,18 +26,18 @@ function CallToAction() {
           </p>
         </div>
         <div className="mt-12 text-center">
-          <a
-            className="py-4 px-6 rounded-full text-black font-bold hover:scale-105 inline-block transition-all"
-            href=""
+          <CTAButton 
+            text="Kostenlosen Videokurs sichern" 
+            openModal={true}
+            className="text-black bg-transparent"
+            electricBorderColor="#1CC5FF"
             style={{
               background:
                 "linear-gradient(267.16deg, #FFFFFF 12.32%, #FFFFFF 109.38%)",
               boxShadow:
                 "5px 10px 15px 0.45px #1CC5FF66 inset, 0px 0px 26px 0px #FFFFFFA8",
             }}
-          >
-            Kostenlosen Videokurs sichern
-          </a>
+          />
         </div>
       </div>
       <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 translate-y-1/3 w-full">

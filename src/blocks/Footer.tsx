@@ -10,12 +10,15 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative">
+    <footer className="relative mt-auto">
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
-            <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
+            <Link
+              href="/"
+              className="hover:opacity-80 transition-opacity duration-200"
+            >
               <Image
                 src="/logo.png"
                 width={200}

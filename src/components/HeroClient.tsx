@@ -39,7 +39,7 @@ export function HeroClient({ title, gridItems }: HeroClientProps) {
         {/* CTA Button */}
         <div className="text-center lg:w-[1200px]">
           <div className="z-10 relative">
-            <CTAButton text="Kostenlosen Videokurs sichern" href="/" />
+            <CTAButton text="Kostenlosen Videokurs sichern" openModal={true} />
           </div>
           {gridItems && <AnimatedPills items={gridItems} />}
         </div>

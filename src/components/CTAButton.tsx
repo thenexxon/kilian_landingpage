@@ -4,22 +4,29 @@ import React, { useState } from "react";
 import Link from "next/link";
 import ElectricBorder from "./ElectricBorder";
 import { cn } from "@/utils/cn";
+import { LeadFormModal } from "./LeadFormModal";
 
 interface CTAButtonProps {
   text: string;
   href?: string;
   onClick?: () => void;
   className?: string;
+  openModal?: boolean;
+  style?: React.CSSProperties;
+  electricBorderColor?: string;
+  shadowColor?: string;
 }
 
-export function CTAButton({ text, href, onClick, className }: CTAButtonProps) {
+export function CTAButton({ text, href, onClick, className, openModal = false, style, electricBorderColor = "#FFA658", shadowColor = "#FFA658" }: CTAButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const buttonStyles = {
     boxShadow: "5px 10px 15px 0.45px #FFD5A6BF inset",
     border: "2px solid #FFFFFFA8",
     transform: isHovered ? "scale(1.05)" : "scale(1)",
     transition: "transform 500ms cubic-bezier(0.4, 0, 0.2, 1)",
+    ...style,
   };
 
   const buttonClasses = cn(
@@ -27,7 +34,15 @@ export function CTAButton({ text, href, onClick, className }: CTAButtonProps) {
     className
   );
 
-  const buttonElement = href ? (
+  const handleClick = () => {
+    if (openModal) {
+      setIsModalOpen(true);
+    } else if (onClick) {
+      onClick();
+    }
+  };
+
+  const buttonElement = href && !openModal ? (
     <Link
       href={href}
       onMouseEnter={() => setIsHovered(true)}
@@ -39,7 +54,7 @@ export function CTAButton({ text, href, onClick, className }: CTAButtonProps) {
     </Link>
   ) : (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={buttonStyles}
@@ -51,6 +66,12 @@ export function CTAButton({ text, href, onClick, className }: CTAButtonProps) {
 
   return (
     <>
+      {openModal && (
+        <LeadFormModal
+          open={isModalOpen}
+          onOpenChange={setIsModalOpen}
+        />
+      )}
       <style jsx>{`
         @keyframes fireFlicker {
           0% {
@@ -89,7 +110,7 @@ export function CTAButton({ text, href, onClick, className }: CTAButtonProps) {
       >
         <ElectricBorder
           className="rounded-full inline-block"
-          color={isHovered ? "#FFA658" : "transparent"}
+          color={isHovered ? electricBorderColor : "transparent"}
           speed={isHovered ? 2 : 0}
           chaos={isHovered ? 0.8 : 0}
           thickness={isHovered ? 5 : 0}

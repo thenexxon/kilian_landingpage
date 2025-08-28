@@ -52,7 +52,7 @@ function TheApp() {
           </a>
         </div>
         <div className="mt-8">
-          <CTAButton text="Kostenlosen Videokurs sichern" href="/" />
+          <CTAButton text="Kostenlosen Videokurs sichern" openModal={true} />
         </div>
       </div>
       <div className=" w-full hidden md:flex md:absolute top-0 pointer-events-none">
