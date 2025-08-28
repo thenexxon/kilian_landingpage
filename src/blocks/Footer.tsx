@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Footer() {
   const footerLinks = [
-    { title: "Impressum", href: "#" },
-    { title: "Datenschutz", href: "#" },
-    { title: "AGB", href: "#" },
+    { title: "Impressum", href: "/impressum" },
+    { title: "Datenschutz", href: "/datenschutz" },
+    { title: "AGB", href: "/agb" },
   ];
 
   return (
@@ -14,13 +15,15 @@ function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
-            <Image
-              src="/logo.png"
-              width={200}
-              height={60}
-              alt="Krypto Masterclass logo"
-              className="w-[300px] h-auto"
-            />
+            <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
+              <Image
+                src="/logo.png"
+                width={200}
+                height={60}
+                alt="Krypto Masterclass logo"
+                className="w-[300px] h-auto"
+              />
+            </Link>
           </div>
 
           {/* Links */}

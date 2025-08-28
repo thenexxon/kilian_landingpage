@@ -5,6 +5,10 @@ import { getContentByComponent } from "@/lib/markdown";
 import { HeroClient } from "../components/HeroClient";
 import Counter from "../components/Counter";
 
+interface GridItem {
+  title: string;
+}
+
 interface HeroProps {
   className?: string;
 }
@@ -34,7 +38,7 @@ async function Hero({ className }: HeroProps) {
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="w-full h-full absolute top-0 left-0">
           <Image
-            src={"/Line.svg"}
+            src={"/line.svg"}
             width={700}
             height={700}
             className="w-full h-full absolute blur-xs"
@@ -61,8 +65,8 @@ async function Hero({ className }: HeroProps) {
 
       {/* Client components */}
       <HeroClient
-        title={heroContent?.title || "No title is givin"}
-        gridItems={gridContent?.gridItems}
+        title={(heroContent?.title as string) || "No title is givin"}
+        gridItems={gridContent?.gridItems as GridItem[] | undefined}
       />
 
       <div className="relative my-8 hidden md:block">

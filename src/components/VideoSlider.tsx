@@ -7,8 +7,6 @@ import { Navigation } from "swiper/modules";
 import {
   ArrowLeft,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   Play,
   X,
 } from "lucide-react";
@@ -145,7 +143,9 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
       const timer = setTimeout(() => {
         // Force Swiper to update its layout
         const swiperEl = document.querySelector('.testimonial-swiper-custom');
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (swiperEl && (swiperEl as any).swiper) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (swiperEl as any).swiper.update();
         }
       }, 100);
@@ -200,13 +200,13 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
             const realIndex = swiper.realIndex;
             setActiveSlide(slidesData[realIndex]);
           }}
-          onSwiper={(swiper) => {
+          onSwiper={() => {
             // Initialize with first slide
             setActiveSlide(slidesData[0]);
           }}
           className="testimonial-swiper-custom"
         >
-          {slidesData.map((slide, index) => (
+          {slidesData.map((slide) => (
             <SwiperSlide key={slide.id}>
               <div
                 className="perspective-normal relative cursor-pointer group overflow-hidden rounded-2xl"
@@ -226,7 +226,9 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
                     onLoad={() => {
                       // Update Swiper layout when image loads
                       const swiperEl = document.querySelector('.testimonial-swiper-custom');
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       if (swiperEl && (swiperEl as any).swiper) {
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         (swiperEl as any).swiper.update();
                       }
                     }}

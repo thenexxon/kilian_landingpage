@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "motion/react";
-import { useRef, Children, ReactElement } from "react";
+import { useRef, Children } from "react";
 
 interface AnimatedPageProps {
   children: React.ReactNode;

@@ -9,7 +9,7 @@ const contentDirectory = path.join(process.cwd(), 'src/content');
 export interface ContentData {
   slug: string;
   content: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export async function getContentByComponent(component: string, fileName: string = 'content.md'): Promise<ContentData | null> {

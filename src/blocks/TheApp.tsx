@@ -38,7 +38,9 @@ function TheApp() {
             />
           </a>
           <a
-            href="https://google.com"
+            href="https://apps.apple.com/us/app/krypto-masterclass-by-kilian/id6504626925"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block hover:scale-105 transition-all"
           >
             <Image

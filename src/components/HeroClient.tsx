@@ -5,9 +5,13 @@ import LightRays from "./LightRays";
 import { AnimatedPills } from "./AnimatedPills";
 import { CTAButton } from "./CTAButton";
 
+interface GridItem {
+  title: string;
+}
+
 interface HeroClientProps {
   title: string;
-  gridItems?: grid[];
+  gridItems?: GridItem[];
 }
 
 export function HeroClient({ title, gridItems }: HeroClientProps) {

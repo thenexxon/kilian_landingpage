@@ -104,6 +104,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     }
 
     requestAnimationFrame(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       [...dyAnims, ...dxAnims].forEach((a: any) => {
         if (typeof a.beginElement === "function") {
           try {
@@ -116,6 +117,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
 
   useEffect(() => {
     updateAnim();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [speed, chaos]);
 
   useLayoutEffect(() => {
@@ -124,6 +126,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     ro.observe(rootRef.current);
     updateAnim();
     return () => ro.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const inheritRadius: CSSProperties = {
