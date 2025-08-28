@@ -118,6 +118,10 @@ const LightRays: React.FC<LightRaysProps> = ({
 
   useEffect(() => {
     if (!isVisible || !containerRef.current) return;
+    
+    // Disable WebGL animation on mobile for performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+    if (isMobile) return;
 
     if (cleanupFunctionRef.current) {
       cleanupFunctionRef.current();

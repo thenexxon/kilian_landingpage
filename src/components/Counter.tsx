@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { cn } from "@/utils/cn";
 
 interface CounterProps {
@@ -65,8 +65,12 @@ function Counter({
       }
     };
 
+    // Check if mobile device
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const updateInterval = isMobile ? 5000 : 1000; // 5 seconds on mobile, 1 second on desktop
+
     calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
+    const timer = setInterval(calculateTimeLeft, updateInterval);
 
     return () => clearInterval(timer);
   }, [targetDate]);
@@ -121,7 +125,7 @@ interface CounterItemProps {
   labelClassName?: string;
 }
 
-function CounterItem({
+const CounterItem = memo(function CounterItem({
   number,
   label,
   className,
@@ -133,15 +137,17 @@ function CounterItem({
   return (
     <div
       className={cn(
-        "text-center md:bg-[rgb(54,60,91)] py-2 md:py-4 md:px-6 rounded-md md:w-[120px] flex md:block",
+        "text-center md:bg-[rgb(54,60,91)] py-2 md:py-4 md:px-6 rounded-md md:w-[120px] flex md:block will-change-contents",
         className
       )}
+      style={{ willChange: 'contents' }}
     >
       <span
         className={cn(
-          "text-2xl font-bold w-[32px] block md:w-full md:text-5xl text-center",
+          "text-2xl font-bold w-[32px] block md:w-full md:text-5xl text-center transition-all duration-300",
           numberClassName
         )}
+        style={{ willChange: 'contents' }}
       >
         {paddedNumber}
       </span>
@@ -150,6 +156,6 @@ function CounterItem({
       </span>
     </div>
   );
-}
+});
 
 export default Counter;

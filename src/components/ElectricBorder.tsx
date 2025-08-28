@@ -116,15 +116,31 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   };
 
   useEffect(() => {
-    updateAnim();
+    // Disable animations on mobile for performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (!isMobile) {
+      updateAnim();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [speed, chaos]);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
-    const ro = new ResizeObserver(() => updateAnim());
+    
+    // Disable animations on mobile for performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    
+    const ro = new ResizeObserver(() => {
+      if (!isMobile) {
+        updateAnim();
+      }
+    });
     ro.observe(rootRef.current);
-    updateAnim();
+    
+    if (!isMobile) {
+      updateAnim();
+    }
+    
     return () => ro.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -90,7 +90,7 @@ function Articles() {
         />
       </div>
       <div
-        className="absolute top-0 left-1/2 rounded-full z-0 blur-[400px] w-full max-w-7xl bottom-0 -translate-x-1/2 z-0"
+        className="hidden md:block absolute top-0 left-1/2 rounded-full z-0 blur-[150px] w-full max-w-7xl bottom-0 -translate-x-1/2 z-0"
         style={{ background: "rgba(42, 65, 184, 0.4)" }}
       />
 
@@ -153,7 +153,7 @@ function Articles() {
           </AnimatePresence>
         </div>
       </div>
-      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/3 w-full z-0">
+      <div className="hidden md:block absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/3 w-full z-0">
         <Image
           src={"/bottom-grid-hero.png"}
           width={500}

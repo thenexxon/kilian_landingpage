@@ -27,7 +27,7 @@ export function HeroClient({ title, gridItems }: HeroClientProps) {
         mouseInfluence={0.4}
         noiseAmount={0.1}
         distortion={0.01}
-        className="absolute top-0 z-10"
+        className="absolute top-0 z-10 hidden lg:block"
       />
 
       {/* Display the title from markdown */}

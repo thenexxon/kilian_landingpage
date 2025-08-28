@@ -6,7 +6,7 @@ function TheApp() {
   return (
     <section className="container m-auto px-4 relative md:mb-24">
       <div
-        className="absolute top-0 left-1/2 rounded-full z-0 blur-[400px] w-full max-w-7xl bottom-0 -translate-x-1/2"
+        className="hidden md:block absolute top-0 left-1/2 rounded-full z-0 blur-[150px] w-full max-w-7xl bottom-0 -translate-x-1/2"
         style={{ background: "rgba(42, 65, 184, 0.4)" }}
       />
       <div className="text-center">

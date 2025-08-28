@@ -27,13 +27,13 @@ export function AnimatedPills({ items }: AnimatedPillsProps) {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Auto-shuffle on mobile
+  // Auto-shuffle on mobile - reduced frequency for performance
   useEffect(() => {
     if (!isMobile || !items.length) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % items.length);
-    }, 2500); // Change every 2.5 seconds
+    }, 5000); // Change every 5 seconds for better performance
 
     return () => clearInterval(interval);
   }, [isMobile, items.length]);

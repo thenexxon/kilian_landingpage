@@ -25,7 +25,7 @@ async function Hero({ className }: HeroProps) {
         className,
       )}
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-full">
+      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-full">
         <Image
           src={"/top-gird-hero.png"}
           width={500}
@@ -35,7 +35,7 @@ async function Hero({ className }: HeroProps) {
           priority
         />
       </div>
-      <div className="absolute inset-0 w-full h-full z-0">
+      <div className="hidden md:block absolute inset-0 w-full h-full z-0">
         <div className="w-full h-full absolute top-0 left-0">
           <Image
             src={"/line.svg"}
@@ -53,7 +53,7 @@ async function Hero({ className }: HeroProps) {
           alt="trading line shadow"
         />
       </div>
-      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
+      <div className="hidden md:block absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
         <Image
           src={"/bottom-grid-hero.png"}
           width={500}
@@ -70,7 +70,7 @@ async function Hero({ className }: HeroProps) {
       />
 
       <div className="relative my-8 hidden md:block">
-        <div className="absolute inset-0 bg-[#3D55CD] rounded-full z-0 blur-[160px]"></div>
+        <div className="hidden md:block absolute inset-0 bg-[#3D55CD] rounded-full z-0 blur-[100px]"></div>
         <Image
           src={"/hero-art.png"}
           width={270}

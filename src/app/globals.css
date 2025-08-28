@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Enable hardware acceleration */
+  .blur-heavy {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {

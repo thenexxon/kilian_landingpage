@@ -112,6 +112,10 @@ const Particles: React.FC<ParticlesProps> = ({
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+    
+    // Disable particle animation on mobile for performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (isMobile) return;
 
     const renderer = new Renderer({ depth: false, alpha: true });
     const gl = renderer.gl;
