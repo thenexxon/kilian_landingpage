@@ -41,7 +41,7 @@ function Faq() {
 
   return (
     <section className="container m-auto py-8 px-4 md:py-16">
-      <h2 className="text-center text-2xl font-bold text-gradient-silver mt-8 md:mt-10 md:text-4xl max-w-[800px] block m-auto relative mb-12">
+      <h2 className="leading-normal text-center text-2xl font-bold text-gradient-silver mt-8 md:mt-10 md:text-4xl max-w-[800px] block m-auto relative mb-12">
         Häufige Fragen
       </h2>
 

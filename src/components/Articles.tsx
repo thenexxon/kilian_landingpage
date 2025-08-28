@@ -95,7 +95,7 @@ function Articles() {
         style={{ background: "rgba(42, 65, 184, 0.4)" }}
       />
 
-      <h2 className="text-center text-2xl font-bold text-gradient-silver mt-8 md:mt-10 md:text-4xl max-w-[800px] block m-auto relative">
+      <h2 className="leading-normal text-center text-2xl font-bold text-gradient-silver mt-8 md:mt-10 md:text-4xl max-w-[800px] block m-auto relative">
         Unsere Unternehmensdarstellung
       </h2>
       <p className="text-center text-lg max-w-[400px] m-auto mt-6 relative">

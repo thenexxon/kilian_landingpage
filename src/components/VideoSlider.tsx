@@ -168,16 +168,26 @@ function VideoSlider({ slides, className }: VideoSliderProps) {
 
         {/* Navigation Arrows */}
         <div className="flex justify-center items-center mt-6 gap-8 z-10 relative md:absolute bottom-0 md:w-[800px] md:left-1/2 md:top-1/2 md:mt-0 md:justify-between md:-translate-1/2">
-          <button className="custom-prev w-[50px] h-[50px] md:w-[100px] md:h-[100px] flex items-center justify-center group hover:scale-110 transition-all duration-300 cursor-pointer">
+          <button 
+            className="custom-prev w-[50px] h-[50px] md:w-[100px] md:h-[100px] flex items-center justify-center group hover:scale-110 transition-all duration-300 cursor-pointer"
+            aria-label="Previous testimonial"
+            title="Previous testimonial"
+          >
             <ArrowLeft
               strokeWidth={0.5}
               className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] text-white group-hover:text-blue-400 transition-colors duration-300"
+              aria-hidden="true"
             />
           </button>
-          <button className="custom-next w-[50px] h-[50px] md:w-[100px] md:h-[100px] flex items-center justify-center group hover:scale-110 transition-all duration-300 cursor-pointer">
+          <button 
+            className="custom-next w-[50px] h-[50px] md:w-[100px] md:h-[100px] flex items-center justify-center group hover:scale-110 transition-all duration-300 cursor-pointer"
+            aria-label="Next testimonial"
+            title="Next testimonial"
+          >
             <ArrowRight
               strokeWidth={0.5}
               className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] text-white group-hover:text-blue-400 transition-colors duration-300"
+              aria-hidden="true"
             />
           </button>
         </div>

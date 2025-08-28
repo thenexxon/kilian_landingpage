@@ -1,6 +1,7 @@
 import AboutMe from "@/components/AboutMe";
 import Articles from "@/components/Articles";
 import BentoGrid from "@/components/BentoGrid";
+import CallToAction from "@/components/CallToAction";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
 import Logo from "@/components/Logo";
@@ -16,6 +17,7 @@ export default function Home() {
       <AboutMe />
       <Articles />
       <Faq />
+      <CallToAction />
     </main>
   );
 }
